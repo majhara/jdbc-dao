@@ -25,11 +25,9 @@ public class DB {
 				throw new DbException(e.getMessage());
 			}
 		}
-		// se a conexao ja tiver sido aberta, retorne-a
 		return conn;
 	}
 
-	// metodo que fecha conexão
 	public static void closeConnection() {
 		if (conn != null) {
 			try {
@@ -41,8 +39,7 @@ public class DB {
 		}
 	}
 
-	// criando método para puxar as propriedades do banco no arquivo "db.properties"
-	private static Properties loadProperties() {
+	public static Properties loadProperties() {
 		try (FileInputStream fs = new FileInputStream("db.properties")) {
 			Properties props = new Properties();
 			props.load(fs);
